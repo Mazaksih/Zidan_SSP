@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block apaya %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            {% for message in messages %}
+                {% if message %}
+                 <div style="height: 0vh;" class="alert alert-succes">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+            <h3>Ubah : {{ barangs.kodebrg }} </h3>
+            <form action="{% url 'ubah_brg' barangs.id %}" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-primary" type="submit">Simpan</button>
+                <a class="btn btn-primary" href="/Vbrg/">Kembali</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

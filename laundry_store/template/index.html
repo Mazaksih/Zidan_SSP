@@ -1,0 +1,136 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block apaya %}
+    <div id="main" class="main-content">
+        <div class="container">
+            <div class="baris">
+                <div class="selamat-datang">
+                    <div class="col-header">
+                        <p class="judul-sm">Selamat Datang <span><?= ucfirst($_SESSION['master']) ?></span></p>
+                        <h2 class="judul-md">Dashboard</h2>
+                    </div>
+
+                    <div class="col-header txt-right">
+                        <a href="#" class="btn-lg bg-primary">+ Order Baru</a>
+                    </div>	
+                </div>
+            </div>
+
+            <div class="baris">
+                <div class="col col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-panel">
+                                <div class="panel-header">
+                                    <p>Jumlah Karyawan</p>
+                                    <h2>12</h2>
+                                </div>
+                                <div class="panel-icon">
+                                    <img src="{% static 'img/team.png'%}" alt="karyawan" height="48">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-panel">
+                                <div class="panel-header">
+                                    <p>Total Order</p>
+                                    <h2>100</h2>
+                                </div>
+                                
+                                <div class="panel-icon">
+                                    <img src="{% static 'img/total_order.png'%}" alt="order" height="48">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-panel">
+                                <div class="panel-header">
+                                    <p>Jumlah Paket Tersedia</p>
+                                    <h2>3</h2>
+                                </div>
+
+                                <div class="panel-icon">
+                                    <img src="{% static 'img/jumlah_paket.png'%}" alt="paket" height="48">
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daftar Order Cuci Komplit -->
+            <div class="baris">
+                <div class="col">
+                    <div class="card">
+                       <div class="card-title card-flex">
+                          <div class="card-col">
+                             <h2>Order Cuci Komplit</h2>	
+                          </div>
+                       </div>
+                 
+                       <div class="card-body">
+                          <div class="tabel-kontainer">
+                             <table class="tabel-transaksi">
+                                <thead>
+                                   <tr>
+                                      <th class="sticky">No</th>
+                                      <th class="sticky">No.Order</th>
+                                      <th class="sticky">Tgl Order</th>
+                                      <th class="sticky">Nama Pelanggan</th>
+                                      <th class="sticky">Jenis Paket</th>
+                                      <th class="sticky">Waktu Kerja</th>
+                                      <th class="sticky">Berat (Kg)</th>
+                                      <th class="sticky">Action</th>
+                                   </tr>
+                                </thead>
+                 
+                                <tbody>
+                                    <tr>
+                                    <td>1</td>
+                                    <td>23</td>
+                                    <td>11 Maret 2023</td>
+                                    <td>Zidan Mahesa</td>
+                                    <td>Dry Clean</td>
+                                    <td>10 jam</td>
+                                    <td>10kg</td>
+                                    <td>
+                                        <a href="#" class="btn btn-detail">Detail</a>
+            
+                                        <a href="#" class="btn btn-hapus">Hapus</a>
+                                    </td>
+                                    </tr>
+                                            <!-- <tr>
+                                            <td colspan="8" class="txt-center">Data Tidak Tersedia</td>
+                                            </tr> -->
+                                </tbody>
+                             </table>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+            </div>
+
+            <!-- Daftar Order Cuci Kering/Dry Clean -->
+            <div class="baris">
+                <?php require_once('daftar_order/daf_or_dc.php');?>
+            </div>
+
+            <!-- Daftar Order Cuci Satuan -->
+            <div class="baris">
+                <?php require_once('daftar_order/daf_or_cs.php');?>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

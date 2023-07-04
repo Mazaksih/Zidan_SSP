@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block apaya %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            {% for message in messages %}
+                {% if message %}
+                 <div class="alert alert-succes" style="height: 0vh;">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+            <form action="" class="form-group" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-primary" type="submit">Tambah</button>
+                <a class="btn btn-primary" href="/Vbrg/">Kembali</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
